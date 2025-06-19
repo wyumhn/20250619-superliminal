@@ -2,7 +2,8 @@ window._abb = {};
 
 _abb.ref = document.referre;
 _abb.loc = document.location.href;
-_abb.hash = decodeURI(_abb.loc).split("#")[1];
+var parts = decodeURI(_abb.loc).split("#");
+_abb.hash = (parts.length > 1) ? parts[1] : "";
 _abb.pWin = window.parent.window;
 
 _abb.id = val => document.getElementById(val);
