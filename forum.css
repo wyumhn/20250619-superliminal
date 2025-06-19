@@ -40,6 +40,10 @@
   background: rgba(var(--general-hover-button-background-color));
 }
 
+.forum-breadcrumbs {
+    margin-top: -0.7rem;
+}
+
 
 /* Thread Table */
 
@@ -93,8 +97,10 @@
   font-size: 0.87rem;
 }
 
-.description .statistics,
-.description-block .statistics {
+.forum-category-box .description-block .statistics,
+.forum-thread-box .description-block .statistics,
+.forum-new-thread-box .description .statistics {
+  padding: 0 0.4rem;
   color: rgba(var(--description-text-color));
 }
 
@@ -517,10 +523,6 @@ table.form tr:has(.checkbox) {
 }
 
 .thread-container .post .long .revisions table tr {
-  display: grid;
-  grid-column-gap: 1rem;
-  grid-template-columns: max-content 1fr max-content;
-  padding: 0.2rem 0.5rem;
   border-bottom: rgba(var(--action-area-border-color)) solid 0.15rem;
   transition: background var(--general-transition-time-slow);
 }
@@ -542,6 +544,11 @@ table.form tr:has(.checkbox) {
 
 .thread-container .post .long .revisions table tr.active td {
   background-color: unset;
+}
+
+.thread-container .post .long .revisions table tr td:nth-child(3) {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .thread-container .post .long .revisions table tr td:nth-child(3) a {
