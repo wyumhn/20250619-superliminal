@@ -17,6 +17,10 @@
     --rating-module-button-color: var(--rating-rateup-text-color);
 }
 
+div.page-rate-widget-box {
+  margin: 0;
+}
+
 #navi-bar,
 #navi-bar-shadow,
 #header,
