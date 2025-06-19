@@ -1,6 +1,7 @@
 :root {
   --forum-post-background-color: var(--general-light-background-color);
   --forum-post-border-color: var(--dark-accent);
+  --forum-user-border-color: var(--general-dark-border-color);
   --forum-post-shadow-color: var(--general-dark-background-color), 0.75;
   --description-text-color: var(--dark-color-3);
   --forum-post-title-font-size: clamp(1.1rem, 0.932rem + 0.84vw, 1.5rem);
@@ -170,13 +171,13 @@
   height: 30px;
   padding: 0;
   background-image: none !important;
-  border: px solid rgb(var(--gray-monochrome));
+  border: 2px solid rgb(var(--forum-user-border-color));
   border-radius: 10%;
 }
 
 .thread-container .post :is(.long .head .info, .short) .printuser::after {
   padding: 0 6px;
-  content: "·";
+  content: " ";
 }
 
 .thread-container .post .long .head .info .odate {
