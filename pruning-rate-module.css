@@ -1,0 +1,48 @@
+@charset "UTF-8";
+@import url("https://br-jpwiki.github.io/files/util/common/credit/style/style.css");
+#navi-bar,
+#navi-bar-shadow,
+#header,
+#side-bar,
+#page-title,
+#breadcrumbs,
+#page-info,
+.page-watch-options,
+.page-options-bottom,
+.page-tags,
+#footer,
+#license-area,
+#footer-bar,
+.odialog-shader,
+.hide-embed,
+.hiddenDisclaimer {
+  display: none !important;
+}
+ 
+body,
+#main-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+ 
+#main-content {
+  width: 100% !important;
+}
+ 
+.owindow {
+  position: static !important;
+  width: 0;
+  height: 0;
+}
+ 
+#ohandle-1,
+.modal-header {
+  font-size: 0 !important;
+}
+ 
+.button-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
