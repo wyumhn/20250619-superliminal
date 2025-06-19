@@ -8,7 +8,7 @@
         --theme-base: "black-highlighter";
         --theme-id: "black-highlighter";
         --theme-name: "nu-SCP Theme";
-        --logo-image: url(https://scp-wiki.wdfiles.com/local--files/component:pride-highlighter/lgbtqp_logo.svg);
+        --logo-image: url("../logo.svg");
         --header-title: "SCP Foundation";
         --header-subtitle: "SECURE, CONTAIN, PROTECT";
         --body-font: Raleway, Arimo, Verdana, Geneva, sans-serif;
@@ -1464,7 +1464,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        background-image: url(http://scptestwiki.wdfiles.com/local--files/squeeze%3Anav%3Aside/arr_drop.svg);
+        background-image: url("./arr_drop.svg");
         background-position: 50% 50%;
         background-repeat: no-repeat;
         width: 2rem;
@@ -1678,7 +1678,6 @@
         position: relative;
         grid-area: header;
         z-index: 10;
-        background-image: url(https://nu-scptheme.github.io/Black-Highlighter/images/logo.svg);
         background-image: var(--logo-image);
         background-position: left .75rem top 1.1875rem;
         background-size: auto calc(var(--header-height-on-desktop) - 2rem);
@@ -2322,7 +2321,6 @@
             position: sticky;
             top: calc(var(--header-height-on-mobile)*-1);
             margin: 0;
-            background-image: url(https://nu-scptheme.github.io/Black-Highlighter/images/logo.svg);
             background-image: var(--logo-image);
             background-position: calc(var(--header-height-on-mobile) - .75rem - var(--size)) calc(var(--size)*-1/2 + var(--header-height-on-mobile)/2 + var(--y-offset)/2);
             background-size: var(--size), 100% var(--header-height-on-mobile);
