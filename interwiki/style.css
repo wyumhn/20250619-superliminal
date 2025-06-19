@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Serif+JP&display=swap');
+:root {
+
+    font-size: 15px;
+    --body-font: 'Noto Sans JP', verdana, arial, helvetica, sans-serif;
+
+    --background-color: 237, 233, 223;
+    --text-color: 25, 20, 16;
+    --light-color-1: var(--background-color);
+    --dark-color-3: 72, 69, 60;
+
+    --general-dark-background-color: var(--dark-color-3);
+    --general-dark-text-color: var(--light-color-1);
+    --general-shadow-color: var(--text-color);
+    --general-light-border-color: var(--dark-color-3), 0.08;
+
+    --sidebar-title-background-color: var(--general-dark-background-color), 0.5;
+    --sidebar-title-text-color: var(--general-dark-text-color);
+    --sidebar-title-shadow-color: var(--general-shadow-color);
+    --sidebar-text-color: var(--text-color);
+    --sidebar-hover-text-color: var(--sidebar-text-color);
+    --sidebar-border-color: var(--general-light-border-color);
+    --sidebar-hover-background-color: var(--text-color), 0.15;
+}
+ 
+body, html {
+    font-family: var(--body-font);
+    background: rgba(var(--background-color));
+    color: rgba(var(--text-color));
+}
+ 
+.side-block {
+    display: flex;
+    flex-direction: column;
+}
+ 
+.side-block .heading {
+    background: rgba(var(--sidebar-title-background-color));
+    color: rgba(var(--sidebar-title-text-color));
+    height: 1.3333333333rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.8rem;
+    text-shadow: 1px 1px 1px rgba(var(--sidebar-title-shadow-color));
+    font-weight: 700;
+    border-bottom: solid 0.1333333333rem rgba(var(--sidebar-border-color));
+    direction: ltr;
+}
+ 
+.side-block .menu-item {
+    font-size: 0;
+    display: flex;
+    border-bottom: solid 0.1333333333rem rgba(var(--sidebar-border-color));
+    direction: ltr;
+}
+ 
+.side-block .menu-item a {
+    display: block;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: rgba(var(--sidebar-text-color));
+    transition: background 0.1s;
+    padding: 0.1rem 0;
+    padding-left: 1em;
+    border-left: solid 0.1333333333rem rgba(var(--sidebar-border-color));
+    background: transparent;
+    flex-grow: 2;
+}
+ 
+.side-block .menu-item a:is(:hover, :active, :focus, :focus-within) {
+    background: rgba(var(--sidebar-hover-background-color));
+    color: rgba(var(--sidebar-hover-text-color));
+}

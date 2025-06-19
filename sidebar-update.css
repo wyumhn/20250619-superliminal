@@ -1,0 +1,26 @@
+:root {
+    --sidebar-interaction-width: 1rem;
+}
+ 
+#side-bar {
+    width: calc(var(--sidebar-width) + var(--sidebar-interaction-width));
+    left: calc(-1 * var(--sidebar-width));
+    padding-right: var(--sidebar-interaction-width);
+    background: transparent;
+    border-right: none;
+}
+ 
+#side-bar::before {
+    position: fixed;
+    width: calc(var(--sidebar-width));
+    left: calc(-1 * var(--sidebar-width));
+    box-sizing: border-box;
+    background: rgba(var(--sidebar-background-color));
+    border-right: solid 0.1333333333rem rgba(var(--sidebar-border-color));
+    transition: left 0.25s ease 0.125s;
+
+}
+ 
+#side-bar:is(:hover, :focus-within)::before {
+    left: 0;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+  "use strict";
+  let fireId;
+  document.addEventListener("DOMContentLoaded", function() {
+    window.isStyleFrame = true;
+  });
+
+  function styleFire(){
+      Array.prototype.slice.call(parent).forEach(function (frame) {
+        try {
+          if (frame.isInterwikiFrame) {
+            console.debug("styleFire");
+            clearInterval(fireId);
+            frame.requestStyleChange(location.search);
+          }
+        } catch (error) {
+          if (!(error instanceof DOMException)) {
+            throw error;
+          }
+        }
+      });
+  }
+  function ping() {
+    Array.prototype.slice.call(parent).forEach(function(frame) {
+      try {
+        if (frame.isInterwikiFrame) {
+          frame.frameping();
+        }
+      } catch (error) {
+        if (!(error instanceof DOMException)) {
+          throw error;
+        }
+      }
+    });
+  }
+  fireId = setInterval(ping, 100);
+  </script>
+</head>
+<body>
+</body>
+</html>

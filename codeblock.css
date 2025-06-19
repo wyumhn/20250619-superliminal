@@ -1,0 +1,84 @@
+:root {
+    --code-block-default-color: var(--blockquote-text-color);
+    --code-block-code-color: var(--code-block-default-color);
+    --code-block-brackets-color: var(--code-block-default-color);
+    --code-block-comment-color: 64, 144, 64;
+    --code-block-quotes-color: 50, 50, 230;
+    --code-block-string-color: var(--code-block-quotes-color);
+    --code-block-identifier-color: var(--code-block-text-color);
+    --code-block-builtin-color: 0, 136, 136;
+    --code-block-reserved-color: 85, 85, 221;
+    --code-block-inlinedoc-color: 0, 0, 255;
+    --code-block-var-color: var(--code-block-comment-color);
+    --code-block-url-color: var(--code-block-inlinedoc-color);
+    --code-block-special-color: 0, 0, 136;
+    --code-block-number-color: 128, 0, 0;
+    --code-block-inlinetags-color: 153, 68, 153;
+    --code-block-gutter-background-color: var(--general-dark-background-color);
+    --code-block-gutter-color: var(--general-dark-text-color);
+}
+ 
+.hl-default {
+    color: rgb(var(--code-block-default-color));
+}
+ 
+.hl-code {
+    color: rgb(var(--code-block-code-color));
+}
+ 
+.hl-brackets {
+    color: rgb(var(--code-block-brackets-color));
+}
+ 
+.hl-comment {
+    color: rgb(var(--code-block-comment-color));
+}
+ 
+.hl-quotes {
+    color: rgb(var(--code-block-quotes-color));
+}
+ 
+.hl-string {
+    color: rgb(var(--code-block-string-color));
+}
+ 
+.hl-identifier {
+    color: rgb(var(--code-block-identifier-color));
+}
+ 
+.hl-builtin {
+    color: rgb(var(--code-block-builtin-color));
+}
+ 
+.hl-reserved {
+    color: rgb(var(--code-block-reserved-color));
+}
+ 
+.hl-inlinedoc {
+    color: rgb(var(--code-block-inlinedoc-color));
+}
+ 
+.hl-var {
+    color: rgb(var(--code-block-var-color));
+}
+ 
+.hl-url {
+    color: rgb(var(--code-block-url-color));
+}
+ 
+.hl-special {
+    color: rgb(var(--code-block-special-color));
+}
+ 
+.hl-number {
+    color: rgb(var(--code-block-number-color));
+}
+ 
+.hl-inlinetags {
+    color: rgb(var(--code-block-inlinetags-color));
+}
+ 
+.hl-gutter {
+    background-color: rgb(var(--code-block-gutter-background-color));
+    color: rgb(var(--code-block-gutter-color));
+}

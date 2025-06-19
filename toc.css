@@ -1,0 +1,57 @@
+:root {
+    --toc-background-color: var(--blockquote-background-color);
+    --toc-text-color: var(--blockquote-text-color);
+    --toc-border-color: var(--general-strong-border-color);
+}
+ 
+#toc {
+    margin: 1rem 0;
+    background: rgba(var(--toc-background-color));
+    color: rgba(var(--toc-text-color));
+    border: rgba(var(--toc-border-color)) dashed 0.15rem;
+}
+ 
+#toc-list div[style*="1em"] {
+    display: list-item;
+    position: relative;
+    margin-left: 1.5em !important;
+    margin-top: 0.35em;
+    list-style: square;
+}
+ 
+#toc-list div[style*="2em"] {
+    display: list-item;
+    position: relative;
+    margin-left: 3em !important;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    list-style: disc;
+}
+ 
+#toc-list div[style*="3em"] {
+    display: list-item;
+    position: relative;
+    margin-left: 4.5em !important;
+    list-style: circle;
+}
+ 
+#toc-list div[style*="4em"] {
+    display: list-item;
+    position: relative;
+    margin-left: 6em !important;
+    list-style: circle;
+}
+ 
+#toc-list div[style*="5em"] {
+    display: list-item;
+    position: relative;
+    margin-left: 7.5em !important;
+    list-style: circle;
+}
+ 
+#toc-list div[style*="6em"] {
+    display: list-item;
+    position: relative;
+    margin-left: 9em !important;
+    list-style: circle;
+}

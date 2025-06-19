@@ -1,0 +1,9 @@
+.yui-navset .yui-nav {
+    width: calc(100% - .125rem);
+    box-sizing: border-box;
+    box-shadow: 0 0.3rem 0 rgba(var(--tabview-horizon-color));
+}
+ 
+.yui-navset .yui-content {
+    width: calc(100% - .125rem);
+}

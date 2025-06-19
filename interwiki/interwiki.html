@@ -1,0 +1,241 @@
+<html id="interwiki" style="min-width: max-content">
+  <head>
+    <!-- https://shitake-crude-production.wdfiles.com/local--code/abbreviation-library/1 -->
+    <script
+      type="text/javascript"
+      src="./interwiki_helper.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./interwiki_builder.js"
+    ></script>
+    <!-- C-take's resizing iframe method -->
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        var mySite = document.referrer;
+        mySite = mySite.split("http://").join("");
+        mySite = "http://" + mySite.split("/")[0] + "/";
+
+        var iframeSet = document.getElementById("iframeset");
+        var oldHeight = 0;
+
+        var url = location.href;
+        url = decodeURI(url.replace(/^.*\//, "/"));
+
+        createResizeIframe();
+
+        // Expose identity for styleFrame
+        window.isInterwikiFrame = true;
+
+        function createResizeIframe() {
+          var Height = getMyHeight();
+          var iframe = document.createElement("iframe");
+          var CacheBreak = String(Math.floor(Math.random() * 10000));
+
+          if (Height != oldHeight) {
+            iframeSet.innerHTML = "";
+            iframe.src =
+              mySite +
+              "common--javascript/resize-iframe.html?" +
+              CacheBreak +
+              "#" +
+              Height +
+              url;
+            iframe.style.display = "none";
+
+            iframeSet.appendChild(iframe);
+            oldHeight = Height;
+          }
+          setTimeout(createResizeIframe, 50);
+        }
+
+        function getMyHeight() {
+          return iframeSet.getBoundingClientRect().top;
+        }
+      });
+    </script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  </head>
+
+  <body>
+    <div id="output" class="side-block">
+      <div id="head" class="heading"></div>
+    </div>
+
+    <script type="text/javascript">
+      /* lists */
+      var headList = [
+        "Languages",
+        "其他语言",
+        "En otros idiomas",
+        "Dans d’autres langues",
+        "Em outros idiomas",
+        "На других языках",
+        "Tiếng Việt",
+        "他言語版",
+      ];
+      var langList = [
+        "English",
+        "中文",
+        "Español",
+        "Français",
+        "Português",
+        "Русский",
+        "Tiếng Việt",
+        "日本語",
+      ];
+      var ISOlist = ["en", "cn", "es", "fr", "ptbr", "ru", "vn", "jp"];
+      var URLlist = [
+        "http://backrooms-wiki.wikidot.com/",
+        "http://backrooms-wiki-cn.wikidot.com/",
+        "http://es-backrooms-wiki.wikidot.com/",
+        "http://fr-backrooms-wiki.wikidot.com/",
+        "http://pt-br-backrooms-wiki.wikidot.com/",
+        "http://ru-backrooms-wiki.wikidot.com/",
+        "http://backrooms-vn.wikidot.com/",
+        "http://japan-backrooms-wiki.wikidot.com/",
+      ];
+      var titleList = [
+        "Main wiki (English)",
+        "BR-CN (Chinese)",
+        "BR-ES (Spanish)",
+        "BR-FR (French)",
+        "BR-PT/BR (Portuguese)",
+        "BR-RU (Russian)",
+        "BR-VN(Vietnamese)",
+        "BR-JP (Japanese)",
+      ];
+      var IDlist = [
+        "4431268",
+        "4716348",
+        "4745515",
+        "4710749",
+        "4714912",
+        "4548260",
+        "4748367",
+        "4864894",
+      ];
+
+      var siteUrl = "japan-backrooms-wiki.wikidot.com";
+      var siteID, header, getURL, linkC, headC;
+      var elem = _abb.id("output"),
+        head = _abb.id("head");
+      var baseURL = _abb.hash.split("?");
+      var siteLang = baseURL[0];
+      if (ISOlist.indexOf(siteLang) == -1) {
+        siteID = "dummy";
+      } else {
+        siteID = IDlist[ISOlist.indexOf(siteLang)];
+      }
+      var pagename = baseURL[1]
+        .toLowerCase()
+        .replace(/%20/g, "-")
+        .replace(/\s/g, "-");
+
+      /* FIRE! */
+      getDataAll();
+      /*
+functions
+based on boyu12's code
+edited by 7happy7
+ */
+      function getDataAll() {
+        if (siteID == "dummy") {
+          header = "Invalid language";
+        } else {
+          header = headList[IDlist.indexOf(siteID)];
+        }
+        head.innerHTML += "<p>" + header + "</p>";
+        for (var i = 0; i < IDlist.length; i++) {
+          getDataVia(
+            URLlist[i],
+            langList[i],
+            IDlist[i],
+            titleList[i],
+            pagename,
+            true
+          );
+        }
+        for (var i = 0; i < 6; i++) {
+          setTimeout(elemSort, 1000 * i + 1000);
+        }
+      }
+
+      function getDataVia(a, b, c, d, e, async) {
+        getURL = "/quickmodule.php?module=PageLookupQModule&q=" + e + "&s=" + c;
+        getData(a, b, c, d, e, async);
+      }
+
+      function getData(a, b, c, d, e, async) {
+        var xhr = _abb.xhr();
+        if (!xhr) {
+          alert("XHR is not supported");
+          return;
+        }
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if (xhr.status != 200) {
+              return;
+            }
+            try {
+              var jsonData = JSON.parse(xhr.responseText);
+              for (var i = 0; i < jsonData.pages.length; i++) {
+                if (jsonData.pages[i].unix_name == e && siteID !== c) {
+                  elem.innerHTML +=
+                    '<div class="menu-item ct-' +
+                    c +
+                    '"><a href="' +
+                    a +
+                    e +
+                    '" title="' +
+                    d +
+                    '" target="_parent">' +
+                    b +
+                    "</a></div>";
+                }
+              }
+            } catch (e) {}
+          }
+        };
+        xhr.open("GET", getURL, async);
+        xhr.send();
+      }
+      var sortList, sortAry;
+
+      function elemSort() {
+        try {
+          sortList = _abb.css('[class*="ct-"]');
+          sortAry = Array.prototype.slice.call(sortList);
+
+          function compareText(a, b) {
+            if (
+              IDlist.indexOf(a.className.replace("ct-", "")) >
+              IDlist.indexOf(b.className.replace("ct-", ""))
+            ) {
+              return 1;
+            } else if (
+              IDlist.indexOf(a.className.replace("ct-", "")) <
+              IDlist.indexOf(b.className.replace("ct-", ""))
+            ) {
+              return -1;
+            } else {
+              return 0;
+            }
+          }
+          sortAry.sort(compareText);
+          for (var i = 0; i < sortAry.length; i++) {
+            elem.appendChild(elem.removeChild(sortAry[i]));
+          }
+        } catch (e) {}
+      }
+
+      /*  change style   */
+
+      addExternalStyle(
+        0,
+        "./style.css"
+      );
+    </script>
+    <div id="iframeset"></div>
+  </body>
+</html>
