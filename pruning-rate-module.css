@@ -1,5 +1,21 @@
 @charset "UTF-8";
 @import url("https://br-jpwiki.github.io/files/util/common/credit/style/style.css");
+:root {
+    font-size: 15px;
+    --rating-font: 'Noto Sans JP', verdana, arial, helvetica, sans-serif;
+    --rating-background-color: 255, 251, 240;
+    --rating-border-color: 72, 69, 60;
+    --rating-text-color: 25, 20, 16;
+    --rating-rateup-color: 193, 44, 50;
+    --rating-ratedown-color: 20, 169, 32;
+    --rating-cancel-color: 200, 200, 200;
+    --rating-rateup-text-color: 255, 251, 240;
+    --rating-ratedown-text-color: 255, 251, 240;
+    --rating-cancel-text-color: 255, 251, 240;
+    --rating-module-button-color: var(--rating-text-color);
+    --rating-module-button-color: var(--rating-rateup-text-color);
+}
+
 #navi-bar,
 #navi-bar-shadow,
 #header,
